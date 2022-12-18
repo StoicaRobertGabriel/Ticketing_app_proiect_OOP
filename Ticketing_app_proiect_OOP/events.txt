@@ -1,0 +1,6 @@
+EVENT INFORMATION:
+Event's name: no name
+Event's date: no date
+Event's duration: 0 hours / 0 minutes
+Event's type: any
+
