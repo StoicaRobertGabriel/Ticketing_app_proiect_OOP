@@ -146,7 +146,7 @@ int main()
 			cout << "error: Entered value is invalid" << endl;
 			break;
 		}
-		}//
+		}
 	}
 	Event e1;
 
