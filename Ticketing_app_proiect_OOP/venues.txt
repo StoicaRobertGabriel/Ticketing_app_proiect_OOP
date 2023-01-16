@@ -1,0 +1,27 @@
+Arena Nationala
+4
+tribuna 1
+30
+70
+tribuna 2
+35
+60
+peluza 1
+30
+45
+peluza 2
+35
+30
+@
+Embassy One Restaurant
+3
+terasa
+15
+4
+fumatori
+5
+4
+nefumatori
+10
+4
+@

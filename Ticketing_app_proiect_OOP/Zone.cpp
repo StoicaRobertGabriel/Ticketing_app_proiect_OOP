@@ -40,7 +40,7 @@ unsigned short Zone::getNrSeatsRow()
 	return nrSeatsRow;
 }
 
-void Zone::setZoneType(string zonetype)
+void Zone::setZoneType(string zoneType)
 {
 	this->zoneType = zoneType;
 }
@@ -61,4 +61,18 @@ Zone& Zone::operator=(const Zone& z)
 	this->nrRows = z.nrRows;
 	this->nrSeatsRow = z.nrSeatsRow;
 	return *this;
+}
+
+istream& operator>>(istream& in, Zone& z)
+{
+	cout << "		Zone's type: ";
+	in >> ws;
+	getline(in, z.zoneType);
+	cout << "		Zone's number of rows of spots/seats: ";
+	in >> ws;
+	in >> z.nrRows;
+	cout << "		Zone's number of spots/seats per row: ";
+	in >> ws;
+	in >> z.nrSeatsRow;
+	return in;
 }

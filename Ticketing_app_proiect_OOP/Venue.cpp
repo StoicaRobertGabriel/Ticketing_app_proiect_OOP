@@ -54,7 +54,7 @@ Venue::~Venue()
 	}
 }
 
-ostream& operator<<(ostream& out, Venue v)
+ostream& operator<<(ostream& out, Venue v) //show to console
 {
 	out << "VENUE INFORMATION:" << endl;
 	out << "Venue's name: " << v.venueName << endl;
@@ -69,34 +69,40 @@ ostream& operator<<(ostream& out, Venue v)
 		}
 		out << "	-ZONE " << i + 1 << ":" << endl;
 		out << "		Zone's type: " << z.getZoneType() << endl;
-		out << "		Zone's number of spot rows: " << z.getNrRows() << endl;
-		out << "		Zone's number of spots per row: " << z.getNrSeatsRow() << endl;
+		out << "		Zone's number of rows of spots/seats: " << z.getNrRows() << endl;
+		out << "		Zone's number of spots/seats per row: " << z.getNrSeatsRow() << endl;
 	}
 	return out;
 }
 
-ofstream& operator<<(ofstream& f, Venue v)
+ofstream& operator<<(ofstream& f, Venue v) //write to file
 {
-	f << "VENUE INFORMATION:" << endl;
-	f << "Venue's name: " << v.venueName << endl;
-	f << "Venue's number of zones: " << v.nrZones << endl;
+	//f << "VENUE INFORMATION:" << endl;
+	//f << "Venue's name: "
+	f << v.venueName << endl;
+	//f << "Venue's number of zones: "
+	f << v.nrZones << endl;
 	for (int i = 0; i < v.nrZones; i++)
 	{
 		Zone z;
 		z = v.zone[i];
-		if (i > 0)
+		/*if (i > 0)
 		{
 			f << endl;
-		}
-		f << "	-ZONE " << i + 1 << ":" << endl;
-		f << "		Zone's type: " << z.getZoneType() << endl;
-		f << "		Zone's number of spot rows: " << z.getNrRows() << endl;
-		f << "		Zone's number of spots per row: " << z.getNrSeatsRow() << endl;
+		}*/
+		//f << "	-ZONE " << i + 1 << ":" << endl;
+		//f << "		Zone's type: "
+		f << z.getZoneType() << endl;
+		//f << "		Zone's number of rows of spots/seats: "
+		f << z.getNrRows() << endl;
+		//f << "		Zone's number of spots/seats per row: "
+		f << z.getNrSeatsRow() << endl;
 	}
+	f << "@" << endl; //end of the venue entry
 	return f;
 }
 
-istream& operator>>(istream& in, Venue& v)
+istream& operator>>(istream& in, Venue& v) //write in console
 {
 	cout << "VENUE INFORMATION:" << endl;
 	cout << "Venue's name: ";
@@ -104,6 +110,11 @@ istream& operator>>(istream& in, Venue& v)
 	getline(in, v.venueName);
 	cout << "Venue's number of zones: ";
 	in >> v.nrZones;
+	//if (v.zone != nullptr && v.nrZones > 0)
+	//{
+	delete[]v.zone;
+	v.zone = nullptr;
+	v.zone = new Zone[v.nrZones];
 	for (int i = 0; i < v.nrZones; i++)
 	{
 		if (i > 0)
@@ -111,21 +122,12 @@ istream& operator>>(istream& in, Venue& v)
 			cout << endl;
 		}
 		cout << "	-ZONE " << i + 1 << ":" << endl;
-		cout << "		Zone's type: ";
-		string zoneTypeString;
-		in >> ws;
-		getline(in, zoneTypeString);
-		v.zone[i].setZoneType(zoneTypeString);
-		cout << "		Zone's number of spot rows: ";
-		unsigned short zoneNrRows;
-		in >> ws;
-		in >> zoneNrRows;
-		v.zone[i].setNrRows(zoneNrRows);
-		cout << "		Zone's number of spots per row: ";
-		unsigned short zoneNrSeatsRow;
-		in >> ws;
-		in >> zoneNrSeatsRow;
-		v.zone[i].setNrSeatsRow(zoneNrSeatsRow);
+		Zone z;
+		in >> z;
+		v.zone[i] = z;
 	}
+	//}
+	
+	
 	return in;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -21,5 +22,7 @@ public:
 	void setNrRows(unsigned short nrRows);
 	void setNrSeatsRow(unsigned short nrSeatsRow);
 	Zone& operator=(const Zone& z);
+	friend istream& operator>>(istream& in, Zone& z);
 };
 
+istream& operator>>(istream& in, Zone& z);

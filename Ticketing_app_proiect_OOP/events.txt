@@ -1,6 +1,15 @@
-EVENT INFORMATION:
-Event's name: no name
-Event's date: no date
-Event's duration: 0 hours / 0 minutes
-Event's type: any
-
+Gigel's Birthday Party
+05/01/2023
+4 hours
+BD party
+@
+FCSB v U Craiova
+15/01/2023
+1 hour 45 min
+football game
+@
+Romeo and Juliet
+25/02/2023
+2 hours
+theatre play
+@

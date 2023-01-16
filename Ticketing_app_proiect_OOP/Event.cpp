@@ -10,7 +10,7 @@ Event::Event()
 	eventType = "any";
 }
 
-Event::Event(string eventName, string eventDate, string duartion, string eventType)
+Event::Event(string eventName, string eventDate, string eventDuration, string eventType)
 {
 	this->eventName = eventName;
 	this->eventDate = eventDate;
@@ -48,12 +48,16 @@ ostream& operator<<(ostream& out, Event e) //show to console
 
 ofstream& operator<<(ofstream& f, Event e) //write to file
 {
-	f << "EVENT INFORMATION:" << endl;
-	f << "Event's name: " << e.eventName << endl;
-	f << "Event's date: " << e.eventDate << endl;
-	f << "Event's duration: " << e.eventDuration << endl;
-	f << "Event's type: " << e.eventType << endl;
-	f << endl;
+	//f << "EVENT INFORMATION:" << endl;
+	//f << "Event's name: "
+	f << e.eventName << endl;
+	//f << "Event's date: "
+	f << e.eventDate << endl;
+	//f << "Event's duration: "
+	f << e.eventDuration << endl;
+	//f << "Event's type: "
+	f << e.eventType << endl;
+	f << "@" << endl;
 	return f;
 }
 
